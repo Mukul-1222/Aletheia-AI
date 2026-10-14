@@ -1,0 +1,56 @@
+{
+  "release": "FINAL34",
+  "version": "0.34.0",
+  "test_scope": "isolated pytest batches plus a full-module retest for the corrected stale release-label assertion",
+  "collected_nodes": 376,
+  "results": {
+    "passed": 375,
+    "skipped": 1,
+    "failed": 0,
+    "errors": 0,
+    "timed_out_batches": 0
+  },
+  "batches": 39,
+  "single_process_full_suite_claim": false,
+  "initial_run_note": "The first aggregate had one failure because an older test expected FINAL33 in the capability report. After correcting that assertion to FINAL34, the full affected module passed 36/36; all other initial-run batches passed and one CUDA-only test was skipped.",
+  "focused_regression_command": "python -m pytest -q tests/test_final34_webapp.py tests/test_final30_test_runner.py tests/test_final32_regressions.py tests/test_final32_verification.py --disable-warnings --maxfail=1",
+  "focused_regression_result": {
+    "passed": 35,
+    "failed": 0
+  },
+  "corrected_module_retest": {
+    "module": "tests/test_final28_evaluation_protocol.py",
+    "passed": 36,
+    "failed": 0
+  },
+  "syntax_checks": {
+    "python_compileall": "passed",
+    "py_compile_core_web_modules": "passed",
+    "node_check_frontend_javascript": "passed"
+  },
+  "json_validation": "passed for project JSON files (excluding generated caches/log directories)",
+  "package_build": {
+    "result": "passed",
+    "method": "pip wheel --no-build-isolation --no-deps",
+    "web_assets_in_wheel": "verified"
+  },
+  "frontend_dom_audit": {
+    "unique_ids": 111,
+    "duplicate_ids": 0,
+    "external_script_style_image_assets": 0,
+    "result": "passed"
+  },
+  "browser_checks": {
+    "headless_chromium_mock_api_interaction": "passed; theme/settings, navigation, drag-drop queue rendering, new chat, send/render reply, mobile nav; no JS runtime errors observed",
+    "live_http_smoke": "passed; health, static assets, chat creation, and durable file queueing while model remained unloaded",
+    "limitation": "Direct Chromium navigation to loopback was blocked by this container policy (ERR_BLOCKED_BY_ADMINISTRATOR); live-server-to-browser E2E is therefore not claimed and should be tested on the target Windows laptop."
+  },
+  "cuda_conditional_test": "1 test skipped because CUDA was not available in the verification environment.",
+  "not_claimed_complete": [
+    "camera and microphone require explicit browser permissions and user action",
+    "browser speech recognition may use browser vendor services",
+    "voice sample enrollment does not itself clone a voice",
+    "learned speech/TTS quality depends on trained models and requires held-out evaluation",
+    "image generation, mini-browser, public free-API catalogue, general agent-to-agent connectors, and research-grade self-evolution are future work"
+  ]
+}

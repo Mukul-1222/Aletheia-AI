@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aletheia-guided"
+version = "0.34.0"
+description = "A from-scratch developmental learning research prototype with language, memory, multimodal perception, planning, and independently testable evaluation tools"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=1.26",
+  "requests>=2.32",
+  "beautifulsoup4>=4.12",
+  "pypdf>=4.0",
+  "torch>=2.10",
+  "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+webapp = ["fastapi>=0.115", "uvicorn[standard]>=0.30", "python-multipart>=0.0.9"]
+audio = ["sounddevice>=0.5"]
+vision = ["opencv-python>=4.8"]
+browser = ["playwright>=1.50"]
+parquet = ["pyarrow>=18.0"]
+
+[project.scripts]
+aletheia-web = "aletheia.webapp:main"
+
+[tool.setuptools]
+packages = ["aletheia"]
+
+[tool.setuptools.package-data]
+aletheia = ["web/*.html", "web/static/*"]
+
+[tool.pytest.ini_options]
+faulthandler_timeout = 60

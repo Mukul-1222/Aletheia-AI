@@ -1,0 +1,35 @@
+﻿.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+
+# Model checkpoints and trained weights
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Local runtime state and databases
+data/
+*.sqlite3
+*.db
+*.sqlite
+*.bak
+
+# Generated evaluation and web staging data
+evaluation/.learning_jobs/
+evaluation/.webapp_staging/
+evaluation/evolution/
+
+# Generated datasets and runtime logs
+*.log
